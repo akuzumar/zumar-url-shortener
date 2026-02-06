@@ -1,183 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zumar.web.id - URL Shortener</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        h1 { 
-            color: #2575fc;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            color: #666;
-            font-size: 1.1em;
-        }
-        .form-section {
-            background: #f8f9ff;
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            border: 1px solid #e0e7ff;
-        }
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        input {
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-        input:focus {
-            border-color: #2575fc;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.1);
-        }
-        button {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 14px rgba(37, 117, 252, 0.3);
-        }
-        button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        .result {
-            margin-top: 20px;
-            padding: 20px;
-            background: #e7f4ff;
-            border-radius: 10px;
-            border-left: 5px solid #2575fc;
-            display: none;
-        }
-        .short-url {
-            font-size: 1.2em;
-            color: #2575fc;
-            font-weight: bold;
-            word-break: break-all;
-            margin-bottom: 15px;
-        }
-        .stats {
-            margin-top: 30px;
-            padding: 20px;
-            background: #f8f9ff;
-            border-radius: 15px;
-        }
-        .link-item {
-            padding: 15px;
-            background: white;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #e0e7ff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .copy-btn {
-            background: #28a745;
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-        .loading {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #666;
-            font-size: 0.9em;
-        }
-        @media (max-width: 600px) {
-            .container { padding: 15px; }
-            h1 { font-size: 1.8em; }
-            .link-item { flex-direction: column; gap: 10px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Zumar Shortener</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-link"></i> Zumar.web.id</h1>
-            <p class="subtitle">URL Shortener Gratis - Buat link pendekmu sendiri</p>
-        </header>
 
-        <div class="form-section">
-            <h2><i class="fas fa-magic"></i> Buat Link Pendek Baru</h2>
-            <div class="input-group">
-                <input type="url" id="longUrl" placeholder="https://contoh.com/url-panjang-susah-diingat" required>
-                <input type="text" id="customAlias" placeholder="nama-kustom (opsional, contoh: video-keren)">
-                <button id="createBtn">
-                    <i class="fas fa-bolt"></i> Buat Short Link
-                </button>
-            </div>
-            
-            <div id="result" class="result">
-                <p><strong><i class="fas fa-check-circle"></i> Berhasil!</strong></p>
-                <p class="short-url" id="shortUrlOutput"></p>
-                <button id="copyBtn" class="copy-btn">
-                    <i class="far fa-copy"></i> Salin Link
-                </button>
-                <a id="testLink" target="_blank" style="margin-left: 10px;">
-                    <i class="fas fa-external-link-alt"></i> Test Buka
-                </a>
-            </div>
-        </div>
+  <div class="container">
+    <h1>🔗 Zumar URL Shortener</h1>
 
-        <div class="stats">
-            <h2><i class="fas fa-history"></i> Link yang Telah Dibuat</h2>
-            <div id="linksList">
-                <div class="loading">
-                    <i class="fas fa-spinner fa-spin"></i> Memuat daftar link...
-                </div>
-            </div>
-        </div>
+    <input type="url" id="longUrl" placeholder="Masukkan URL panjang..." required>
+    <button onclick="shorten()">Shorten</button>
 
-        <footer>
-            <p>© 2023 Zumar.web.id | Hosting di GitHub Pages | Database disimpan di GitHub</p>
-            <p><i class="fas fa-info-circle"></i> Semua link bisa diakses publik</p>
-        </footer>
-    </div>
+    <div id="result"></div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
