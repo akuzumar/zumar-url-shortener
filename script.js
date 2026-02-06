@@ -1,16 +1,16 @@
 // KONFIGURASI - UBAH INI SESUAI DATA KAMU!
 const CONFIG = {
     // 1. Ganti dengan username GitHub-mu
-    GITHUB_USERNAME: 'username_kamu',
+    GITHUB_USERNAME: 'akuzumar',
     
     // 2. Ganti dengan nama repository-mu
     REPO_NAME: 'zumar-url-shortener',
     
     // 3. Dapatkan GitHub Token (lihat cara di bawah)
-    GITHUB_TOKEN: 'github_pat_xxxxxxxxxx',
+    GITHUB_TOKEN: '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',
     
     // 4. Domain website-mu (setelah di-host di GitHub Pages)
-    BASE_URL: 'https://username_kamu.github.io/zumar-url-shortener'
+    BASE_URL: 'https://akuzumar.github.io/zumar-url-shortener'
 };
 
 // File database di GitHub
